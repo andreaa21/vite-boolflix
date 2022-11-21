@@ -19,13 +19,12 @@ export default {
   },
   methods:{
     getMovies(){
-      axios.get(store.apiUrl)
+      axios.get(`${store.apiUrl}${store.searchValue}`)
         .then( result => {
           store.apiInfo = result.data;
           store.movieData = store.apiInfo.results
-          console.log(store.movieData);
         })
-        .catch( error =>{
+        .catch( error => {
           console.log(error);
         })
     }
