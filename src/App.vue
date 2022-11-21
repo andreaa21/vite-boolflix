@@ -1,5 +1,15 @@
 <script>
+
+import {store} from './data/store'
+
 export default {
+  name: 'App',
+  data(){
+    return{
+      store
+    }
+  }
+  
 
 }
 </script>
