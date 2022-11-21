@@ -13,7 +13,8 @@ export default {
 </script>
 
 <template>
-    <div class="container d-flex justify-content-between align-items-center p-2">
+    <header>
+        <div class="container d-flex justify-content-between align-items-center p-2">
         <div class="logo">
             <h1>
                 boolflix
@@ -29,14 +30,9 @@ export default {
             class="btn btn-primary ms-3">Search</button>
         </div>
 
-        <!-- 
-        Titolo
-        Titolo Originale
-        Lingua
-        Voto
-        -->
 
     </div>
+    </header>
 </template>
 
 
