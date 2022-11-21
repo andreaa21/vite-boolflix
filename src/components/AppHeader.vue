@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-    <div class="container p-5">
+    <div class="container debug p-5">
         <input
         v-model="store.searchValue"
         type="text" 
@@ -28,19 +28,7 @@ export default {
         Lingua
         Voto
         -->
-        <div class="row my-4">
-            <div class="col">
-                <ul
-                v-for="item in store.movieData"
-                :key="item.id"
-                >   
-                    <li>{{item.title}}</li>
-                    <li>{{item.original_title}}</li>
-                    <li>{{item.original_language}}</li>
-                    <li>{{item.vote_average}}</li>
-                </ul>
-            </div>
-        </div>
+
     </div>
 </template>
 
