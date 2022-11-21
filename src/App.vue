@@ -18,24 +18,29 @@ export default {
     }
   },
   methods:{
-    getMovies(){
-      axios.get(`${store.apiUrl}${store.searchValue}`)
-        .then( result => {
-          store.apiInfo = result.data;
-          store.movieData = store.apiInfo.results
-        })
-        .catch( error => {
-          console.log(error);
-        })
+    getEverything(){
+    axios.all([
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e4a05594f63089f70f93bd86f2788f16&query=${store.searchValue}`),
+    axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e4a05594f63089f70f93bd86f2788f16&query=${store.searchValue}`)
+    ])    
+      .then(axios.spread((result1, result2) => {
+          // risultato prima chiamata (film)
+          store.movieApiInfo = result1.data;
+          store.movieData = store.movieApiInfo.results;
+          // risultato seconda chiamata (tv)
+          store.tvApiInfo = result2.data;
+          store.tvShowData = store.tvApiInfo.results;
+        }));
     }
   }
+
   
 
 }
 </script>
 
 <template>
-  <AppHeader @startSearch="getMovies()"/>
+  <AppHeader @startSearch="this.getEverything()" />
   <AppMain />
 </template>
 

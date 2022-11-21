@@ -20,7 +20,7 @@ export default {
                 boolflix
             </h1>
         </div>
-        <div class="input-area">
+        <div class="input-area d-flex justify-content-end">
             <input
             v-model="store.searchValue"
             type="text" 

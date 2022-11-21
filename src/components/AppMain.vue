@@ -26,6 +26,7 @@ export default {
         <div class="container">
             <div class="row my-4">
                 <div class="col">
+                    <div class="py-3">Movies</div>
                     <ul
                     v-for="item in store.movieData"
                     :key="item.id"
@@ -38,9 +39,21 @@ export default {
                         <li>{{item.vote_average}}</li>
                     </ul>
                 </div>
+                <div class="col">
+                    <div class="py-3">Tv shows</div>
+                    <ul
+                    v-for="item in store.tvShowData"
+                    :key="item.id"
+                    >   
+                        <li>{{item.original_name}}</li>
+                        <li>
+                            <span :class="getFlags(item.original_language)"></span>
+                        </li>
+                        <li>{{item.vote_average}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <!-- `<span class="fi fi-gr"></span></span>` -->
     </main>
 </template>
 
