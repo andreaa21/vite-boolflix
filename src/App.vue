@@ -1,0 +1,16 @@
+<script>
+export default {
+
+}
+</script>
+
+<template>
+  
+</template>
+
+
+<style lang="scss">
+  @use './styles/general.scss';
+  @use './styles/partials/vars';
+
+</style>
