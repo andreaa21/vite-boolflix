@@ -13,14 +13,21 @@ export default {
 </script>
 
 <template>
-    <div class="container debug p-5">
-        <input
-        v-model="store.searchValue"
-        type="text" 
-        placeholder="Search">
-        <button 
-        @click="$emit('startSearch')"
-        class="btn btn-primary ms-3">Search</button>
+    <div class="container d-flex justify-content-between align-items-center p-2">
+        <div class="logo">
+            <h1>
+                boolflix
+            </h1>
+        </div>
+        <div class="input-area">
+            <input
+            v-model="store.searchValue"
+            type="text" 
+            placeholder="Search">
+            <button 
+            @click="$emit('startSearch')"
+            class="btn btn-primary ms-3">Search</button>
+        </div>
 
         <!-- 
         Titolo
@@ -37,5 +44,10 @@ export default {
 <style lang="scss" scoped>
     input{
         text-indent: 4px;
+    }
+    h1{
+        text-transform: uppercase;
+        color: rgb(173, 5, 5);
+        font-size: 1.5rem;
     }
 </style>
