@@ -22,26 +22,48 @@ export default {
 <template>
     <main>
         <div class="container">
-            <div class="row my-4">
+            <div
+            v-if="!store.isPopular"
+            class="row d-flex flex-column">
+                <div class="col">
+                    <div class="title">
+                        <h2>Movies</h2>
+                    </div>
+                </div>
                 <div
-                v-if="!store.isPopular"
-                class="col d-flex flex-wrap">
+                class="col d-flex flex-wrap ">
                     <MovieCard 
                     :card="card"
                     v-for="card in store.movieData"
                     :key="card.id"/>
                 </div>
+            </div>
+            <div
+            v-if="!store.isPopular"
+            class="row d-flex flex-column">
+            <div class="col">
+                    <div class="title">
+                        <h2>Tv Shows</h2>
+                    </div>
+                </div>
                 <div
-                v-if="!store.isPopular"
                 class="col d-flex flex-wrap">
                     <MovieCard 
                     :card="card"
                     v-for="card in store.tvShowData"
                     :key="card.id"/>
                 </div>
+            </div>
+            <div 
+            v-else
+            class="row d-flex flex-column">
+                <div class="col">
+                    <div class="title">
+                        <h2>Most Popular</h2>
+                    </div>
+                </div>
                 <div
-                v-else
-                class="col d-flex flex-wrap">
+                class="col d-flex flex-wrap card-wrapper">
                     <MovieCard 
                     :card="card"
                     v-for="card in store.popularData"
@@ -56,6 +78,9 @@ export default {
 
 <style lang="scss" scoped>
     main{
-        height: calc(100vh - 70px);
+        margin-top: 70px;
+    }
+    h2{
+        margin: 2rem .5rem;
     }
 </style>

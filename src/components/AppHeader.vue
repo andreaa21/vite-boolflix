@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
     header{
-        background-color: grey; // da cambiare
+        background-color: black; // da cambiare
         height: 70px;
         position: fixed;
         top: 0;

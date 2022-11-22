@@ -30,7 +30,8 @@ export default {
 <template>
     <div class="x-card">
         <div class="card-image">
-            <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" alt="">
+            <img v-if="card.backdrop_path" :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" alt="">
+            <span v-else>no image available</span>
         </div>
         <div class="card-text">
             <div>{{card.title || card.name}}</div>
@@ -56,9 +57,27 @@ export default {
 
 <style lang="scss" scoped>
     .x-card{
-        width:  300px;
-        height: 300px;;
-        margin: 1rem;
+        // width:  300px;
+
+        flex-basis: 20%;
+        display: inline-block;
+        padding: 2rem .3rem;
+        transition: all .3s;
+        &:hover{
+            transform: scale(1.2);
+            z-index: 998;
+            margin-bottom: -300px;
+            max-height: 200px;
+           
+        }
+        &:hover .card-text{
+            display: block;
+            padding: 1rem;
+            background-color: black;
+        }
+        .card-text{
+            display: none;
+        }
         .fa-star{
             color: rgb(233, 200, 12);
         }
