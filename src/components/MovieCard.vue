@@ -24,9 +24,11 @@ export default {
 </script>
 
 <template>
-    <div class="x-card debug d-flex flex-column justify-content-around">
-        <div>{{card.title}}</div>
-        <div>{{card.original_title}}</div>
+    <div class="x-card debug">
+        <div>{{card.title || card.name}}</div>
+        <div
+        v-if="card.original_title"
+        >{{card.original_title}}</div>
         <div>{{card.vote_average}}</div>
         <div class="flag">
             <span :class="getFlags(card.original_language)"></span>

@@ -32,6 +32,14 @@ export default {
                     :key="card.id"/>
                 </div>
                 <div
+                v-if="!store.isPopular"
+                class="col d-flex flex-wrap">
+                    <MovieCard 
+                    :card="card"
+                    v-for="card in store.tvShowData"
+                    :key="card.id"/>
+                </div>
+                <div
                 v-else
                 class="col d-flex flex-wrap">
                     <MovieCard 
