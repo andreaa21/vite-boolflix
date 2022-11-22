@@ -9,6 +9,10 @@ body {
     // background-color: brown;
 }
 
+img {
+    max-width: 100%;
+}
+
 .debug {
     background-color: rgba($color: red, $alpha: .25);
     border: 1px solid black;

@@ -18,7 +18,11 @@ export default {
                 return `fi fi-`+ 'us'
                 }
             return `fi fi-`+lang
-            }
+            },
+        getStarRating(num){
+            const rating = Math.round(num) / 2;
+            return Math.round(rating);
+        }
     }
 }
 </script>
@@ -32,7 +36,7 @@ export default {
         <div
         v-if="card.original_title"
         >{{card.original_title}}</div>
-        <div>{{card.vote_average}}</div>
+        <div>{{getStarRating(card.vote_average)}}</div>
         <div class="flag">
             <span :class="getFlags(card.original_language)"></span>
         </div>    
@@ -43,8 +47,8 @@ export default {
 
 <style lang="scss" scoped>
     .x-card{
-        // width:200px;
-        // height: 200px;;
+        width:  300px;
+        height: 300px;;
         margin: 1rem;
     }
 </style>

@@ -47,33 +47,6 @@ export default {
                     v-for="card in store.popularData"
                     :key="card.id"/>
                 </div>
-                <!-- <div class="col">
-                    <div class="py-3">Movies</div>
-                    <ul
-                    v-for="item in store.movieData"
-                    :key="item.id"
-                    >   
-                        <li>{{item.title}}</li>
-                        <li>{{item.original_title}}</li>
-                        <li>
-                            <span :class="getFlags(item.original_language)"></span>
-                        </li>
-                        <li>{{item.vote_average}}</li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <div class="py-3">Tv shows</div>
-                    <ul
-                    v-for="item in store.tvShowData"
-                    :key="item.id"
-                    >   
-                        <li>{{item.name}}</li>
-                        <li>
-                            <span :class="getFlags(item.original_language)"></span>
-                        </li>
-                        <li>{{item.vote_average}}</li>
-                    </ul>
-                </div> -->
             </div>
         </div>
     </main>
