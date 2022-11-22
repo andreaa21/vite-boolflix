@@ -13,12 +13,10 @@ export default {
 </script>
 
 <template>
-    <header>
+    <header class="d-flex">
         <div class="container d-flex justify-content-between align-items-center p-2">
         <div class="logo">
-            <h1>
-                boolflix
-            </h1>
+            <img src="/logo-boolflix.png" alt="logo">
         </div>
         <div class="input-area d-flex justify-content-end">
             <input
@@ -27,7 +25,7 @@ export default {
             placeholder="Search">
             <button 
             @click="$emit('startSearch')"
-            class="btn btn-primary ms-3">Search</button>
+            class="btn btn-outline-danger ms-3">Search</button>
         </div>
 
 
@@ -38,12 +36,20 @@ export default {
 
 
 <style lang="scss" scoped>
+    header{
+        background-color: grey; // da cambiare
+        height: 70px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        .logo{
+            width: 100px;
+        }
+    }
     input{
         text-indent: 4px;
+        border: none;
     }
-    h1{
-        text-transform: uppercase;
-        color: rgb(173, 5, 5);
-        font-size: 1.5rem;
-    }
+
 </style>

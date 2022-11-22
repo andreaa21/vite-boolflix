@@ -6,7 +6,8 @@
 
 
 body {
-    // background-color: brown;
+    color: white;
+    background-color: black;
 }
 
 img {
@@ -14,6 +15,6 @@ img {
 }
 
 .debug {
-    background-color: rgba($color: red, $alpha: .25);
+    background-color: rgba($color: blue, $alpha: .25);
     border: 1px solid black;
 }

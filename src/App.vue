@@ -54,4 +54,6 @@ export default {
   @use './styles/general.scss';
   @use './styles/partials/vars';
 
+
+
 </style>

@@ -60,7 +60,7 @@ export default {
         height: 300px;;
         margin: 1rem;
         .fa-star{
-            color: yellow;
+            color: rgb(233, 200, 12);
         }
     }
 </style>
