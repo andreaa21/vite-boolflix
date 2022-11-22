@@ -28,10 +28,11 @@ export default {
 </script>
 
 <template>
-    <div class="x-card">
+    <div
+    v-if="card.backdrop_path"
+    class="x-card">
         <div class="card-image">
-            <img v-if="card.backdrop_path" :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" alt="">
-            <span v-else>no image available</span>
+            <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" :alt="card.title || card.name">
         </div>
         <div class="card-text">
             <div>{{card.title || card.name}}</div>
@@ -67,8 +68,7 @@ export default {
             transform: scale(1.2);
             z-index: 998;
             margin-bottom: -300px;
-            max-height: 200px;
-           
+            max-height: 200px;           
         }
         &:hover .card-text{
             display: block;

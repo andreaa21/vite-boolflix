@@ -7,8 +7,12 @@
 
 body {
     color: white;
-    background-color: black;
+    // background-color: #141414;
+    background-image: linear-gradient(black 0px,
+            #141414 20%,
+            #141414 100%)
 }
+
 
 img {
     max-width: 100%;

@@ -26,12 +26,14 @@ export default {
             v-if="!store.isPopular"
             class="row d-flex flex-column">
                 <div class="col">
-                    <div class="title">
+                    <div
+                    v-if="store.movieData.length > 0"
+                    class="title">
                         <h2>Movies</h2>
                     </div>
                 </div>
                 <div
-                class="col d-flex flex-wrap ">
+                class="col d-flex flex-wrap">
                     <MovieCard 
                     :card="card"
                     v-for="card in store.movieData"
@@ -42,7 +44,9 @@ export default {
             v-if="!store.isPopular"
             class="row d-flex flex-column">
             <div class="col">
-                    <div class="title">
+                    <div
+                    v-if="store.tvShowData.length > 0"
+                    class="title">
                         <h2>Tv Shows</h2>
                     </div>
                 </div>
@@ -79,8 +83,9 @@ export default {
 <style lang="scss" scoped>
     main{
         margin-top: 70px;
+
     }
     h2{
-        margin: 2rem .5rem;
+        margin: 1rem .5rem;
     }
 </style>
