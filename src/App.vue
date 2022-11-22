@@ -1,7 +1,7 @@
 <script>
 
-import {store} from './data/store'
-import axios from 'axios'
+import {store} from './data/store';
+import axios from 'axios';
 
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
@@ -25,11 +25,9 @@ export default {
     ])    
       .then(axios.spread((result1, result2) => {
           // risultato prima chiamata (film)
-          store.movieApiInfo = result1.data;
-          store.movieData = store.movieApiInfo.results;
+          store.movieData = result1.data.results;
           // risultato seconda chiamata (tv)
-          store.tvApiInfo = result2.data;
-          store.tvShowData = store.tvApiInfo.results;
+          store.tvShowData = result2.data.results;
         }));
     }
   }
