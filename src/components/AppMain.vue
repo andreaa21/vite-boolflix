@@ -23,10 +23,20 @@ export default {
     <main>
         <div class="container">
             <div class="row my-4">
-                <div class="col-3 debug">
+                <div
+                v-if="!store.isPopular"
+                class="col d-flex flex-wrap">
                     <MovieCard 
                     :card="card"
                     v-for="card in store.movieData"
+                    :key="card.id"/>
+                </div>
+                <div
+                v-else
+                class="col d-flex flex-wrap">
+                    <MovieCard 
+                    :card="card"
+                    v-for="card in store.popularData"
                     :key="card.id"/>
                 </div>
                 <!-- <div class="col">

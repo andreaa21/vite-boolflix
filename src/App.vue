@@ -19,6 +19,7 @@ export default {
   },
   methods:{
     getEverything(){
+    store.isPopular = false;
     axios.all([
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e4a05594f63089f70f93bd86f2788f16&query=${store.searchValue}`),
     axios.get(`https://api.themoviedb.org/3/search/tv?api_key=e4a05594f63089f70f93bd86f2788f16&query=${store.searchValue}`)
@@ -29,11 +30,17 @@ export default {
           // risultato seconda chiamata (tv)
           store.tvShowData = result2.data.results;
         }));
+    },
+    getPopular(){
+      axios.get(store.popularApiUrl)
+        .then( result => {
+          store.popularData = result.data.results
+        })
     }
+  },
+  mounted(){
+    this.getPopular()
   }
-
-  
-
 }
 </script>
 

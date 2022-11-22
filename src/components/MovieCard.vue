@@ -17,7 +17,6 @@ export default {
             if(lang === 'en'){
                 return `fi fi-`+ 'us'
                 }
-                console.log(lang);
             return `fi fi-`+lang
             }
     }
@@ -25,7 +24,7 @@ export default {
 </script>
 
 <template>
-    <div class="x-card">
+    <div class="x-card debug d-flex flex-column justify-content-around">
         <div>{{card.title}}</div>
         <div>{{card.original_title}}</div>
         <div>{{card.vote_average}}</div>
@@ -37,6 +36,10 @@ export default {
 
 
 
-<style>
-
+<style lang="scss" scoped>
+    .x-card{
+        width:200px;
+        height: 200px;;
+        margin: 1rem;
+    }
 </style>
