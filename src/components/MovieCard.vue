@@ -28,18 +28,27 @@ export default {
 </script>
 
 <template>
-    <div class="x-card debug">
+    <div class="x-card">
         <div class="card-image">
             <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" alt="">
         </div>
-        <div>{{card.title || card.name}}</div>
-        <div
-        v-if="card.original_title"
-        >{{card.original_title}}</div>
-        <div>{{getStarRating(card.vote_average)}}</div>
-        <div class="flag">
-            <span :class="getFlags(card.original_language)"></span>
-        </div>    
+        <div class="card-text">
+            <div>{{card.title || card.name}}</div>
+            <div
+              v-if="card.original_title"
+              >{{card.original_title}}</div>
+            <div class="star">
+                <span
+                v-for="(index) in getStarRating(card.vote_average)"
+                :key="index"
+                >
+                    <i class="fa-solid fa-star"></i>
+                </span>
+            </div>
+            <div class="flag">
+                <span :class="getFlags(card.original_language)"></span>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -50,5 +59,8 @@ export default {
         width:  300px;
         height: 300px;;
         margin: 1rem;
+        .fa-star{
+            color: yellow;
+        }
     }
 </style>
