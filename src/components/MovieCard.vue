@@ -25,6 +25,9 @@ export default {
 
 <template>
     <div class="x-card debug">
+        <div class="card-image">
+            <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" alt="">
+        </div>
         <div>{{card.title || card.name}}</div>
         <div
         v-if="card.original_title"
@@ -40,8 +43,8 @@ export default {
 
 <style lang="scss" scoped>
     .x-card{
-        width:200px;
-        height: 200px;;
+        // width:200px;
+        // height: 200px;;
         margin: 1rem;
     }
 </style>

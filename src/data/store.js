@@ -8,5 +8,5 @@ export const store = reactive({
     popularData: [],
     isPopular: true,
     imgUrl: 'https://image.tmdb.org/t/p/',
-    imgSize: 'w342'
+    imgSize: 'w342',
 });
