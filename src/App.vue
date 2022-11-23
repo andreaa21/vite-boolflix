@@ -35,7 +35,6 @@ export default {
       axios.get(store.popularMovieApiUrl)
         .then( result => {
           store.popularMovieData = result.data.results
-          console.log(store.popularMovieData);
         })
     },
     getPopularTvshows(){
@@ -43,17 +42,20 @@ export default {
         .then( result => {
           store.popularTvData = result.data.results
         })
+    },
+    getPopularEverything(){
+      this.getPopularMovies()
+      this.getPopularTvshows()
     }
   },
   mounted(){
-    this.getPopularMovies()
-    this.getPopularTvshows()
+    this.getPopularEverything()
   }
 }
 </script>
 
 <template>
-  <AppHeader @startSearch="this.getEverything()" />
+  <AppHeader @startSearch="this.getEverything()"/>
   <AppMain />
 </template>
 

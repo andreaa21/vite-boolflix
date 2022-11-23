@@ -41,10 +41,10 @@ export default {
 
 <template>
     <div
-    v-if="card.backdrop_path"
+    v-if="card.poster_path"
     class="x-card">
         <div class="card-image">
-            <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" :alt="card.title || card.name">
+            <img :src="`${store.imgUrl}${store.imgSize}${card.poster_path}`" :alt="card.title || card.name">
         </div>
         <div class="card-text">
             <ul>
