@@ -14,10 +14,12 @@ export default {
 
 <template>
     <header class="d-flex justify-content-between align-items-center px-5">
-            <div class="logo">
+            <div 
+            @click="$emit('getHome')"
+            class="logo d-none d-sm-block">
                 <img src="/logo-boolflix.png" alt="logo">
             </div>
-        <div class="input-area d-flex justify-content-end">
+        <div class="input-area d-flex">
             <input
             v-model="store.searchValue"
             type="text" 
@@ -46,6 +48,9 @@ export default {
     input{
         text-indent: 4px;
         border: none;
+    }
+    .logo{
+        cursor: pointer;
     }
 
 </style>
