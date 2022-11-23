@@ -35,13 +35,13 @@ export default {
       axios.get(store.popularMovieApiUrl)
         .then( result => {
           store.popularMovieData = result.data.results
+          console.log(store.popularMovieData);
         })
     },
     getPopularTvshows(){
       axios.get(store.popularTvApiUrl)
         .then( result => {
           store.popularTvData = result.data.results
-          console.log(store.popularTvData);
         })
     }
   },

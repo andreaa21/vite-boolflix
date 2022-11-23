@@ -41,28 +41,25 @@ export default {
 
 <template>
     <div
-    v-if="card.poster_path"
-    @click="getActive()"
-    @mouseleave="removeActive()"
-    :class="{active : store.isActive}"
+    v-if="card.backdrop_path"
     class="x-card">
         <div class="card-image">
-            <img :src="`${store.imgUrl}${store.imgSize}${card.poster_path}`" :alt="card.title || card.name">
+            <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" :alt="card.title || card.name">
         </div>
         <div class="card-text">
             <ul>
                 <li>
-                    <span class="me-1 fw-bold">Titolo:</span>
+                    <span class="me-1 fw-bold">Title:</span>
                     {{card.title || card.name}}
                 </li>
                 <li
                 v-if="card.original_title"
                 >
-                    <span class="me-1 fw-bold">Titolo Originale:</span>
+                    <span class="me-1 fw-bold">Original Title:</span>
                     {{card.original_title}}
                 </li>
                 <li>    
-                    <span class="me-1 fw-bold">Voto:</span>
+                    <span class="me-1 fw-bold">Rating:</span>
                     <span
                     v-for="(index) in getStarRating(card.vote_average)"
                     :key="index"
@@ -71,7 +68,7 @@ export default {
                     </span>
                 </li>
                 <li>
-                    <span class="me-2 fw-bold">Lingua:</span>
+                    <span class="me-2 fw-bold">Language:</span>
                     <i :class="getFlags(card.original_language)"></i>
                 </li>
                 <li class="overview">
@@ -95,8 +92,13 @@ export default {
         &:hover{
             transform: scale(1.2);
             z-index: 998;
-            // margin-bottom: 100px;
-            max-height: 200px;         
+            max-height: 200px;
+        }
+        &:hover .card-image{
+            width: 250px;
+            img{
+                width: 100%;
+            }
         }
         &:hover .card-text{
             display: flex;
@@ -104,6 +106,7 @@ export default {
             justify-content: start;
             padding: 1rem;
             background-color: black;
+            width: 250px;
         }
         .card-text{
             display: none;
@@ -124,11 +127,4 @@ export default {
         overflow-y: scroll;
         font-size: .7rem;
     }
-    // .x-card.active {
-    //     // min-width: 500px;
-    //     color: red;
-    //     .card-image img{
-    //         width: 100%;
-    //     }
-    // }
 </style>
