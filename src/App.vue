@@ -31,15 +31,23 @@ export default {
           store.tvShowData = result2.data.results;
         }));
     },
-    getPopular(){
+    getPopularMovies(){
       axios.get(store.popularMovieApiUrl)
         .then( result => {
-          store.popularData = result.data.results
+          store.popularMovieData = result.data.results
+        })
+    },
+    getPopularTvshows(){
+      axios.get(store.popularTvApiUrl)
+        .then( result => {
+          store.popularTvData = result.data.results
+          console.log(store.popularTvData);
         })
     }
   },
   mounted(){
-    this.getPopular()
+    this.getPopularMovies()
+    this.getPopularTvshows()
   }
 }
 </script>

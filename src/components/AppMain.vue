@@ -63,17 +63,30 @@ export default {
             class="row d-flex flex-column">
                 <div class="col">
                     <div class="title">
-                        <h2>Most Popular</h2>
+                        <h2>Most Popular Movies</h2>
                     </div>
                 </div>
                 <div
                 class="col d-flex flex-wrap justify-content-center">
                     <MovieCard 
                     :card="card"
-                    v-for="card in store.popularData"
+                    v-for="card in store.popularMovieData"
+                    :key="card.id"/>
+                </div>
+                <div class="col">
+                    <div class="title">
+                        <h2>Most Popular Tv Shows</h2>
+                    </div>
+                </div>
+                <div
+                class="col d-flex flex-wrap justify-content-center">
+                    <MovieCard 
+                    :card="card"
+                    v-for="card in store.popularTvData"
                     :key="card.id"/>
                 </div>
             </div>
+            
         </div>
     </main>
 </template>
