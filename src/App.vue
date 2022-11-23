@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @getHome="this.getPopularMovies()" @startSearch="this.getEverything()" />
+  <AppHeader @startSearch="this.getEverything()" />
   <AppMain />
 </template>
 
