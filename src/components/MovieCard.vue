@@ -35,11 +35,18 @@ export default {
             <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" :alt="card.title || card.name">
         </div>
         <div class="card-text">
-            <div>{{card.title || card.name}}</div>
+            <div>
+                <span class="me-1 fw-bold">Titolo:</span>
+                {{card.title || card.name}}
+            </div>
             <div
               v-if="card.original_title"
-              >{{card.original_title}}</div>
+              >
+                <span class="me-1 fw-bold">Titolo Originale:</span>
+                {{card.original_title}}
+            </div>
             <div class="star">
+                <span class="me-1 fw-bold">Voto:</span>
                 <span
                 v-for="(index) in getStarRating(card.vote_average)"
                 :key="index"
@@ -48,7 +55,12 @@ export default {
                 </span>
             </div>
             <div class="flag">
+                <span class="me-2 fw-bold">Lingua:</span>
                 <span :class="getFlags(card.original_language)"></span>
+            </div>
+            <div class="overview">
+                <span class="me-2 fw-bold">Overview: </span>
+                <p>{{card.overview}}</p>
             </div>
         </div>
     </div>
@@ -65,7 +77,7 @@ export default {
         padding: 2rem .3rem;
         transition: all .3s;
         &:hover{
-            transform: scale(1.2);
+            transform: scale(1.25);
             z-index: 998;
             margin-bottom: -300px;
             max-height: 200px;           

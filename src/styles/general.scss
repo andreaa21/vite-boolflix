@@ -1,4 +1,4 @@
-@use './partials/vars';
+@use './partials/vars.scss' as *;
 
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/@fortawesome/fontawesome-free/css/all.min.css';
@@ -7,10 +7,7 @@
 
 body {
     color: white;
-    // background-color: #141414;
-    background-image: linear-gradient(black 0px,
-            #141414 20%,
-            #141414 100%)
+    background-color: $primary-color;
 }
 
 

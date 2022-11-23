@@ -41,7 +41,8 @@ export default {
         position: fixed;
         top: 0;
         width: 100%;
-        z-index: 999;
+        z-index: 997;
+        background-color: black;
         .logo{
             width: 100px;
         }
