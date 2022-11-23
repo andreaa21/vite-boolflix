@@ -16,6 +16,10 @@ export default {
         getFlags(lang){
             if(lang === 'en'){
                 return `fi fi-`+ 'us'
+                }else if(lang === 'ja'){
+                    return `fi fi-`+ 'jp'
+                }else if(lang === 'uk'){
+                    return `fi fi-`+ 'gb'
                 }
             return `fi fi-`+lang
             },
@@ -68,7 +72,7 @@ export default {
                 </li>
                 <li>
                     <span class="me-2 fw-bold">Lingua:</span>
-                    <span :class="getFlags(card.original_language)"></span>
+                    <i :class="getFlags(card.original_language)"></i>
                 </li>
                 <li class="overview">
                     <span class="me-2 fw-bold">Overview: </span>
