@@ -32,7 +32,7 @@ export default {
         }));
     },
     getPopular(){
-      axios.get(store.popularApiUrl)
+      axios.get(store.popularMovieApiUrl)
         .then( result => {
           store.popularData = result.data.results
         })

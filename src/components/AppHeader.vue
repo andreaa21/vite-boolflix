@@ -13,11 +13,10 @@ export default {
 </script>
 
 <template>
-    <header class="d-flex">
-        <div class="container d-flex justify-content-between align-items-center p-2">
-        <div class="logo">
-            <img src="/logo-boolflix.png" alt="logo">
-        </div>
+    <header class="d-flex justify-content-between align-items-center px-5">
+            <div class="logo">
+                <img src="/logo-boolflix.png" alt="logo">
+            </div>
         <div class="input-area d-flex justify-content-end">
             <input
             v-model="store.searchValue"
@@ -27,9 +26,6 @@ export default {
             @click="$emit('startSearch')"
             class="btn btn-outline-danger ms-3">Search</button>
         </div>
-
-
-    </div>
     </header>
 </template>
 

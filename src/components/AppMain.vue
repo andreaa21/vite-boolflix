@@ -67,7 +67,7 @@ export default {
                     </div>
                 </div>
                 <div
-                class="col d-flex flex-wrap card-wrapper">
+                class="col d-flex flex-wrap justify-content-center">
                     <MovieCard 
                     :card="card"
                     v-for="card in store.popularData"

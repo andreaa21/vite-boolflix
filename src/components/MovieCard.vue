@@ -22,6 +22,14 @@ export default {
         getStarRating(num){
             const rating = Math.round(num) / 2;
             return Math.round(rating);
+        },
+        getActive(){
+            store.isActive = !store.isActive;
+            console.log('----isActive--- ' + store.isActive);
+        },
+        removeActive(){
+            store.isActive = false;
+            console.log('----isActive--- ' + store.isActive);
         }
     }
 }
@@ -29,39 +37,44 @@ export default {
 
 <template>
     <div
-    v-if="card.backdrop_path"
+    v-if="card.poster_path"
+    @click="getActive()"
+    @mouseleave="removeActive()"
+    :class="{active : store.isActive}"
     class="x-card">
         <div class="card-image">
-            <img :src="`${store.imgUrl}${store.imgSize}${card.backdrop_path}`" :alt="card.title || card.name">
+            <img :src="`${store.imgUrl}${store.imgSize}${card.poster_path}`" :alt="card.title || card.name">
         </div>
         <div class="card-text">
-            <div>
-                <span class="me-1 fw-bold">Titolo:</span>
-                {{card.title || card.name}}
-            </div>
-            <div
-              v-if="card.original_title"
-              >
-                <span class="me-1 fw-bold">Titolo Originale:</span>
-                {{card.original_title}}
-            </div>
-            <div class="star">
-                <span class="me-1 fw-bold">Voto:</span>
-                <span
-                v-for="(index) in getStarRating(card.vote_average)"
-                :key="index"
+            <ul>
+                <li>
+                    <span class="me-1 fw-bold">Titolo:</span>
+                    {{card.title || card.name}}
+                </li>
+                <li
+                v-if="card.original_title"
                 >
-                    <i class="fa-solid fa-star"></i>
-                </span>
-            </div>
-            <div class="flag">
-                <span class="me-2 fw-bold">Lingua:</span>
-                <span :class="getFlags(card.original_language)"></span>
-            </div>
-            <div class="overview">
-                <span class="me-2 fw-bold">Overview: </span>
-                <p>{{card.overview}}</p>
-            </div>
+                    <span class="me-1 fw-bold">Titolo Originale:</span>
+                    {{card.original_title}}
+                </li>
+                <li>    
+                    <span class="me-1 fw-bold">Voto:</span>
+                    <span
+                    v-for="(index) in getStarRating(card.vote_average)"
+                    :key="index"
+                    >
+                        <i class="fa-solid fa-star"></i>
+                    </span>
+                </li>
+                <li>
+                    <span class="me-2 fw-bold">Lingua:</span>
+                    <span :class="getFlags(card.original_language)"></span>
+                </li>
+                <li class="overview">
+                    <span class="me-2 fw-bold">Overview: </span>
+                    <p>{{card.overview}}</p>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -70,28 +83,48 @@ export default {
 
 <style lang="scss" scoped>
     .x-card{
-        // width:  300px;
-
+        min-width:  200px;
         flex-basis: 20%;
-        display: inline-block;
         padding: 2rem .3rem;
         transition: all .3s;
+        cursor: pointer;
         &:hover{
-            transform: scale(1.25);
+            transform: scale(1.2);
             z-index: 998;
-            margin-bottom: -300px;
-            max-height: 200px;           
+            // margin-bottom: 100px;
+            max-height: 200px;         
         }
         &:hover .card-text{
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: start;
             padding: 1rem;
             background-color: black;
         }
         .card-text{
             display: none;
+            ul{
+                list-style: none;
+                margin-left: -20px;
+                li{
+                    margin: .5rem 0;
+                }
+            }
         }
         .fa-star{
             color: rgb(233, 200, 12);
         }
     }
+    .overview p{
+        max-height: 100px;
+        overflow-y: scroll;
+        font-size: .7rem;
+    }
+    // .x-card.active {
+    //     // min-width: 500px;
+    //     color: red;
+    //     .card-image img{
+    //         width: 100%;
+    //     }
+    // }
 </style>

@@ -4,10 +4,19 @@
 @import 'node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 @import 'node_modules/flag-icons/css/flag-icons.min.css';
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 
 body {
     color: white;
     background-color: $primary-color;
+    // background-color: cornflowerblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 
