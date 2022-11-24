@@ -71,9 +71,16 @@ export default {
                     <span class="me-2 fw-bold">Language:</span>
                     <i :class="getFlags(card.original_language)"></i>
                 </li>
-                <li class="overview">
+                <li
+                v-if="card.overview"
+                class="overview">
                     <span class="me-2 fw-bold">Overview: </span>
                     <p>{{card.overview}}</p>
+                </li>
+                <li v-else>
+                    <span class="available">
+                        Overview not available
+                    </span>
                 </li>
             </ul>
         </div>
@@ -125,6 +132,9 @@ export default {
     .overview p{
         max-height: 100px;
         overflow-y: scroll;
+        font-size: .7rem;
+    }
+    .available{
         font-size: .7rem;
     }
 </style>
